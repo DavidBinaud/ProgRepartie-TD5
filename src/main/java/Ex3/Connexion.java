@@ -32,9 +32,15 @@ public class Connexion implements Runnable {
 
             ins.close();
             outs.close();
-            soc.close();
         }catch (IOException e){
             e.printStackTrace();
+        }
+        finally {
+            try {
+                soc.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
