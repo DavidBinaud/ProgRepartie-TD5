@@ -18,7 +18,7 @@ public class Serveur {
         // insertion de la boucle du serveur ici
         while(true) {
             String strIN = ins.readLine();
-            if(strIN.equals("END")) break;
+            if(strIN.equals("stop")) break;
 
             System.out.println(strIN);
             String strOUT = "Reçu:" + strIN;
