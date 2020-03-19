@@ -10,6 +10,7 @@ public class Client {
 
         Socket soc = new Socket(args[0],6020);
         System.out.println("START");
+        System.out.println(soc);
 
         Scanner scan = new Scanner(System.in);
 
