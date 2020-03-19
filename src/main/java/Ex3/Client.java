@@ -3,6 +3,8 @@ package Ex3;
 import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Client {
 
@@ -12,26 +14,27 @@ public class Client {
         System.out.println("START");
         System.out.println(soc);
 
-        Scanner scan = new Scanner(System.in);
+        ExecutorService executor = Executors.newFixedThreadPool(1);
+        BufferedReader ins = new BufferedReader( new InputStreamReader(soc.getInputStream()));
 
-        BufferedReader ins = new BufferedReader(
-                new InputStreamReader(soc.getInputStream()));
-        PrintWriter outs = new PrintWriter(new BufferedWriter(
-                new OutputStreamWriter(soc.getOutputStream())), true);
+        System.out.println(ins.readLine());
+        //demande d'input nom
+        System.out.println(ins.readLine());
 
-        while (true) {
-            String msg = scan.nextLine();
-            if(msg.equals("stop")){break;}
-            outs.println(msg);
+
+        SendClient send = new SendClient(soc);
+        executor.execute(send);
+
+
+
+
+
+        while (send.isRunning()) {
             System.out.println(ins.readLine());
         }
-        System.out.println("stop");
-        outs.println("stop");
-
 
 
         ins.close();
-        outs.close();
         soc.close();
     }
 }
