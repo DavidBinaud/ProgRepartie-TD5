@@ -3,7 +3,7 @@
 IUT de Montpellier, Dép. Informatique
 Architecture et prog. distribuées (2ème année) 2020
 
-# TD no5 - Client-serveur
+# TD no5 - Ex1.ClientQ6-serveur
 
 Le but de ce TD est de réaliser une application client-serveur simple. Dans cette application, il y aura
 deux exécutables. L’un est le serveur qui attend des requêtes de la part des clients et pourra dialoguer
@@ -25,7 +25,7 @@ communiquer.
 <pre><code>
 **import** java.io.*;
 **import** java.net.*;<br>
-**public class** Serveur {<br>
+**public class** Ex1.ServeurQ6 {<br>
     **public static void** main(String[] args) **throws** Exception {<br>
         ServerSocket s = **new** ServerSocket(6020);
         System.out.println("START");
@@ -77,7 +77,7 @@ message au serveur.
 
 <br>
 
-**Exercice 2.** Serveur multi-tâche
+**Exercice 2.** Ex1.ServeurQ6 multi-tâche
 
 Dans cet exercice on va réorganiser le serveur pour qu’il puisse communiquer avec plusieurs clients
 simultanément.

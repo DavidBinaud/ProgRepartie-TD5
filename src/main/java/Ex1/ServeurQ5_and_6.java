@@ -1,7 +1,10 @@
-import java.net.*;
-import java.io.*;
+package Ex1;
 
-public class Serveur {
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ServeurQ5_and_6 {
     public static void main(String[] args) throws Exception {
 
         ServerSocket s = new ServerSocket(6020);
@@ -9,7 +12,7 @@ public class Serveur {
         System.out.println(s.getInetAddress());
 
         Socket soc = s.accept();
-        System.out.println("Client Connecté");
+        System.out.println("Ex1.ClientQ6 Connecté");
         BufferedReader ins = new BufferedReader(
                 new InputStreamReader(soc.getInputStream()));
         PrintWriter outs = new PrintWriter(new BufferedWriter(
